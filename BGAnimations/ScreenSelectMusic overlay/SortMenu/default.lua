@@ -291,16 +291,16 @@ local t = Def.ActorFrame {
 		end
 
 		-- Add operator functions if in event mode. (Public arcades probably don't want random players
-		-- attempting to diagnose the pads or reload songs ...)
+		-- reloading songs ...)
 		if GAMESTATE:IsEventMode() then
-			-- Allow players to switch to a TestInput overlay if the current game has visual assets to support it.
-			local game = GAMESTATE:GetCurrentGame():GetName()
-			if (game=="dance" or game=="pump" or game=="techno") then
-				table.insert(wheel_options, {"FeelingSalty", "TestInput"})
-			end
+			table.insert(wheel_options, {"TakeABreather", "LoadNewSongs"})
 		end
-
-		table.insert(wheel_options, {"TakeABreather", "LoadNewSongs"})
+		
+		-- Allow players to switch to a TestInput overlay if the current game has visual assets to support it.
+		local game = GAMESTATE:GetCurrentGame():GetName()
+		if (game=="dance" or game=="pump" or game=="techno") then
+			table.insert(wheel_options, {"FeelingSalty", "TestInput"})
+		end
 
 		-- Only display the View Downloads option if we're connected to
 		-- GrooveStats and Auto-Downloads are enabled.
