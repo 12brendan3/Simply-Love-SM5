@@ -316,9 +316,9 @@ local wheel_options = {
 	{
 		{"", "CategoryAdvanced"},
 		{
-			{ {"FeelingSalty", "TestInput"}, GAMESTATE:IsEventMode() },
+			{ {"FeelingSalty", "TestInput"} },
 			{ {"HardTime", "PracticeMode"}, function() return GAMESTATE:IsEventMode() and GAMESTATE:GetCurrentSong() ~= nil and ThemePrefs.Get("KeyboardFeatures") end },
-			{ {"TakeABreather", "LoadNewSongs"} },
+			{ {"TakeABreather", "LoadNewSongs"}, GAMESTATE:IsEventMode() },
 			{ {"NeedMoreRam", "ViewDownloads"}, DownloadsExist },
 			{ {"WhereforeArtThou", "SongSearch"}, not GAMESTATE:IsCourseMode() and ThemePrefs.Get("KeyboardFeatures") },
 			{ {"NextPlease", "SwitchProfile"}, ThemePrefs.Get("AllowScreenSelectProfile") },
