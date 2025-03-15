@@ -91,7 +91,9 @@ local TNSFrames = {
 	TapNoteScore_W3 = 2,
 	TapNoteScore_W4 = 3,
 	TapNoteScore_W5 = 4,
-	TapNoteScore_Miss = 5
+	TapNoteScore_Miss = 5,
+	TapNoteScore_CheckpointHit = -1,
+	TapNoteScore_CheckpointMiss = 5
 }
 
 return Def.ActorFrame{
@@ -146,10 +148,10 @@ return Def.ActorFrame{
 
 			sprite:visible(true):setstate(frame)
 
-			if SL[ToEnumShortString(player)].ActiveModifiers.JudgmentTilt then
+			if mods.JudgmentTilt then
 				-- How much to rotate.
 				-- We cap it at 50ms (15px) since anything after likely to be too distracting.
-				local offset = math.min(math.abs(param.TapNoteOffset), 0.050) * 300
+				local offset = math.min(math.abs(param.TapNoteOffset), 0.050) * 300 * mods.TiltMultiplier
 				-- Which direction to rotate.
 				local direction = param.TapNoteOffset < 0 and -1 or 1
 				sprite:rotationz(direction * offset)
@@ -234,7 +236,7 @@ return Def.ActorFrame{
 			if tns ~= "Miss" then
 				-- How much to rotate.
 				-- We cap it at 50ms (15px) since anything after likely to be too distracting.
-				local offset = math.min(math.abs(param.TapNoteOffset), 0.050) * 300
+				local offset = math.min(math.abs(param.TapNoteOffset), 0.050) * 300 * mods.TiltMultiplier
 				-- Which direction to rotate.
 				local direction = param.TapNoteOffset < 0 and -1 or 1
 				sprite:rotationz(direction * offset)
