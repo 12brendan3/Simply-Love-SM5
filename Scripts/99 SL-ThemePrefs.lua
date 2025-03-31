@@ -131,6 +131,12 @@ SL_CustomPrefs.Get = function()
 			Choices =  { THEME:GetString("ThemePrefs","Yes"), THEME:GetString("ThemePrefs", "No") },
 			Values	= { true, false }
 		},
+		AnimateBanners =
+		{
+			Default = true,
+			Choices = { THEME:GetString("ThemePrefs", "On"), THEME:GetString("ThemePrefs", "Off") },
+			Values  = { true, false }
+		},
 		-- - - - - - - - - - - - - - - - - - - -
 		-- SimplyLoveColor saves the theme color for the next time
 		-- the StepMania application is started.
@@ -209,6 +215,18 @@ SL_CustomPrefs.Get = function()
 			Values  = { true, false }
 		},
 		AllowScreenSelectColor =
+		{
+			Default = true,
+			Choices = { THEME:GetString("ThemePrefs","Yes"), THEME:GetString("ThemePrefs", "No") },
+			Values  = { true, false }
+		},
+		AllowScreenSelectPlayMode =
+		{
+			Default = true,
+			Choices = { THEME:GetString("ThemePrefs","Yes"), THEME:GetString("ThemePrefs", "No") },
+			Values  = { true, false }
+		},
+		AllowScreenSelectPlayMode2 =
 		{
 			Default = true,
 			Choices = { THEME:GetString("ThemePrefs","Yes"), THEME:GetString("ThemePrefs", "No") },

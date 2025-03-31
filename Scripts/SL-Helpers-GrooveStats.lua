@@ -95,8 +95,8 @@ RequestResponseActor = function(x, y)
 				method=method,
 				body=body,
 				headers=headers,
-				connectTimeout=timeout/2,
-				transferTimeout=timeout/2,
+				connectTimeout=timeout,
+				transferTimeout=timeout,
 				onResponse=function(response)
 					self.request_handler = nil
 					-- If we get a permanent error, make sure we "disconnect" from
@@ -598,7 +598,7 @@ end
 
 -- -----------------------------------------------------------------------
 
-ParseGroovestatsDate = function(date)
+ParseGrooveStatsDate = function(date)
 	if not date or #date == 0 then return "" end
 
 	-- Dates are formatted like:
